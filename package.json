@@ -1,0 +1,14 @@
+{
+  "name": "daily-survey",
+  "version": "1.0.0",
+  "description": "Send a daily google form survey to yourself.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "John Hatcher",
+  "license": "ISC",
+  "dependencies": {
+    "google-clients": "https://github.com/jhatch/google-clients.git"
+  }
+}
