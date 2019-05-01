@@ -4,11 +4,18 @@
   "description": "Send a daily google form survey to yourself.",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "lint": "./node_modules/.bin/eslint *.js",
+    "test": "echo \"No tests.\"",
+    "start": "node -e \"require('./index').sendSurvey()\""
   },
   "author": "John Hatcher",
   "license": "ISC",
   "dependencies": {
     "google-clients": "https://github.com/jhatch/google-clients.git"
+  },
+  "devDependencies": {
+    "eslint": "5.16.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.16.0"
   }
 }
