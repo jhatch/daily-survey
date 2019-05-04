@@ -23,12 +23,27 @@ const gmail = new GoogleMail({
   token: gmailToken,
 });
 
+const me = {
+  name: 'John Hatcher',
+  email: 'john.h.hatcher@gmail.com',
+};
+
+const contents = {
+  subject: `[Daily Survey] ${new Date()}`,
+  html: survey,
+};
+
+const errorContents = {
+  subject: `[Daily Survey] ${new Date()} ERROR!`,
+};
+
 exports.sendSurvey = async () => {
   try {
-    await gmail.send(`[Daily Survey] ${new Date()}`, survey);
+    await gmail.send(me, me, contents);
   } catch (error) {
-    await gmail.send(`[Daily Survey] ${new Date()} ERROR!`, `<pre>${error.stack}</pre>`);
-    /* eslint no-console: OFF */
+    errorContents.html = `<pre>${error.stack}</pre>`;
+    await gmail.send(me, me, errorContents);
+    /* eslint no-console: off */
     console.error(error);
     throw error;
   }
